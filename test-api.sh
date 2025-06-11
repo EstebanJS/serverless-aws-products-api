@@ -10,10 +10,10 @@ NC='\033[0m' # No Color
 
 # Obtener el endpoint de la API desde CloudFormation
 echo -e "${YELLOW}Obteniendo el endpoint de la API...${NC}"
-API_ENDPOINT=$(aws cloudformation describe-stacks --stack-name serverless-api-products --query 'Stacks[0].Outputs[?OutputKey==`ApiEndpoint`].OutputValue' --output text)
+API_ENDPOINT=$(aws cloudformation describe-stacks --stack-name serverless-api-products-yjb --query 'Stacks[0].Outputs[?OutputKey==`ApiEndpoint`].OutputValue' --output text)
 
 if [ -z "$API_ENDPOINT" ]; then
-    echo -e "${RED}No se pudo obtener el endpoint de la API. Verifica que el stack 'serverless-api-products' existe y se ha desplegado correctamente.${NC}"
+    echo -e "${RED}No se pudo obtener el endpoint de la API. Verifica que el stack 'serverless-api-products-yjb' existe y se ha desplegado correctamente.${NC}"
     exit 1
 fi
 
